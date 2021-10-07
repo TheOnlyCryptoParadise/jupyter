@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  jupyter:
+    image: cryptoparadise-jupyter
+    networks:
+      - jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - "./mounts/.jupyter:/home/jovyan/.jupyter"
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      FRONT_DNS_NAME: "karol-laptop:3000"
+    # entrypoint: bash
+networks:
+  jupyter:
+    external: true
+    name: localstack_network
