@@ -8,7 +8,7 @@ services:
       - "8888:8888"
     environment:
       JUPYTER_ENABLE_LAB: "yes"
-      FRONT_DNS_NAME: "localhost"
+      FRONT_DNS_NAME: "localhost:3000"
 networks:
   localstack-net:
     external: true
