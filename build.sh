@@ -1,1 +1,1 @@
-docker build . -t cryptoparadise-jupyter:latest
+docker build . -t lewelyn/cryptoparadise-jupyter:latest
