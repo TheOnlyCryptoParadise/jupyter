@@ -4,7 +4,11 @@ import os
 # Application(SingletonConfigurable) configuration
 #------------------------------------------------------------------------------
 ## This is an application.
-
+c.NotebookApp.tornado_settings = {
+    'headers': {
+        'Content-Security-Policy': "frame-ancestors " + os.getenv("FRONT_DNS_NAME")
+    }
+}
 ## The date format used by logging formatters for %(asctime)s
 #  Default: '%Y-%m-%d %H:%M:%S'
 # c.Application.log_datefmt = '%Y-%m-%d %H:%M:%S'
@@ -229,7 +233,7 @@ import os
 #          These services can disable all authentication and security checks,
 #          with the full knowledge of what that implies.
 #  Default: False
-# c.NotebookApp.disable_check_xsrf = False
+c.NotebookApp.disable_check_xsrf = True
 
 ## Whether to enable MathJax for typesetting math/TeX
 #

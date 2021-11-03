@@ -225,7 +225,7 @@
 #          These services can disable all authentication and security checks,
 #          with the full knowledge of what that implies.
 #  Default: False
-# c.ServerApp.disable_check_xsrf = False
+c.ServerApp.disable_check_xsrf = True
 
 ## handlers that should be loaded at higher priority than the default services
 #  Default: []
@@ -1497,3 +1497,8 @@
 
 c.ServerApp.password = ''
 c.ServerApp.token = ''
+c.NotebookApp.tornado_settings = {
+    'headers': {
+        'Content-Security-Policy': "frame-ancestors " + os.getenv("FRONT_DNS_NAME")
+    }
+}
