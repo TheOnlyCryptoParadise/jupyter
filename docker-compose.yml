@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   jupyter:
-    image: lewelyn/cryptoparadise-jupyter
+    image: lewelyn/cryptoparadise-jupyter:latest
     networks:
       - localstack-net
     ports:
@@ -9,6 +9,7 @@ services:
     environment:
       JUPYTER_ENABLE_LAB: "yes"
       FRONT_DNS_NAME: "localhost:3000"
+      CANDLE_DATA_SERVICE_URL: "http://candle_data_service:8080"
 networks:
   localstack-net:
     external: true
