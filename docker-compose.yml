@@ -5,8 +5,7 @@ services:
     networks:
       - localstack-net
     ports:
-      - "8888:8888"
-    volumes:
+      - "8888:8888"    volumes:
       - "./work:/home/jovyan/work"
     environment:
       JUPYTER_ENABLE_LAB: "yes"
