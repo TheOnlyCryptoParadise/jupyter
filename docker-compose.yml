@@ -6,8 +6,6 @@ services:
       - localstack-net
     ports:
       - "8888:8888"
-    volumes:
-      - "./work:/home/jovyan/work"
     environment:
       JUPYTER_ENABLE_LAB: "yes"
       FRONT_DNS_NAME: "localhost:3000"
