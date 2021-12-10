@@ -1,0 +1,2 @@
+wget https://circleci.com/api/v1.1/project/github/TheOnlyCryptoParadise/crypto_package/latest/artifacts/0/dist/crypto_package-0.0.1-py3-none-any.whl 
+python -m pip install crypto_package-0.0.1-py3-none-any.whl
