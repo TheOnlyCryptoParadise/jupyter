@@ -81,7 +81,7 @@ import os
 #  
 #          Takes precedence over allow_origin_pat.
 #  Default: ''
-# c.ServerApp.allow_origin = ''
+c.ServerApp.allow_origin = os.getenv("CORS_ALLOW", "*")
 
 ## Use a regular expression for the Access-Control-Allow-Origin header
 #  
