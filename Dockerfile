@@ -10,3 +10,4 @@ RUN wget https://circleci.com/api/v1.1/project/github/TheOnlyCryptoParadise/cryp
 RUN python -m pip install crypto_package-0.0.1-py3-none-any.whl
 
 COPY mounts/.jupyter/* /home/jovyan/.jupyter/
+COPY ./work/* /home/jovyan/work/
