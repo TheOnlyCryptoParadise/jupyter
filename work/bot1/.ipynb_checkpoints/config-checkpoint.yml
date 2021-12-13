@@ -9,10 +9,11 @@ exchange: binance
 currency_pairs:
   - BTC/USDT
   - ETH/EUR
-  - DOT/USDC
+  - DOT/USDT
 ticker: 1m
 last_n_candles: 200
 # roi_stop: 10
 sell_all: True
 timeout: 30
+max_open_trades: 5
 #start_time: '2019-06-01 12:22:00'

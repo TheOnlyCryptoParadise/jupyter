@@ -40,18 +40,19 @@ class Strategy(Bot):
 
         buy = False
         # DOWN TREND
-        if (# (indicators['rsi'] < 30) &
-                    (indicators['volume'] > 0) &
-                    (indicators['close'] > indicators['open']) &
+        if ((indicators.iloc[-1]['volume'] > 0) &
+            # (indicators['rsi'] < 30) &
+                    
+                    (indicators.iloc[-1]['close'] > indicators.iloc[-1]['open']) &
                     # (indicators['close'].shift(1) > indicators['open'].shift(1)) &
-                    (indicators['rsi'].shift(1) < indicators['rsi']) &
+                    (indicators['rsi'].shift(1).iloc[-1] < indicators.iloc[-1]['rsi']) &
                     # (indicators['rsi'].shift(2) < indicators['rsi'].shift(1)) 
                     # ((indicators['close'].shift(2) < indicators['bb_lowerband'].shift(2)) |
                     #  (indicators['close'].shift(1) < indicators['bb_lowerband'].shift(1)) |
                     #  (indicators['close'] < indicators['bb_lowerband'])) &
                     # (indicators['close'] < ((indicators['bb_lowerband'] + indicators['bb_middleband']) / 2)) &
-                    (((indicators['sma'] - indicators['sma'].shift(1)) / indicators['sma']) * 100 > -0.3) &
-                    (((indicators['sma'] - indicators['sma'].shift(1)) / indicators['sma']) * 100 < 0.15)
+                    (((indicators.iloc[-1]['sma'] - indicators['sma'].shift(1).iloc[-1]) / indicators.iloc[-1]['sma']) * 100 > -0.3) &
+                    (((indicators.iloc[-1]['sma'] - indicators['sma'].shift(1).iloc[-1]) / indicators.iloc[-1]['sma']) * 100 < 0.15)
 
             ):
             buy = False
@@ -59,16 +60,16 @@ class Strategy(Bot):
         # UP TREND
         if (
                 # (indicators['rsi'] < 30) &
-                    (indicators['volume'] > 0) &
-                    (indicators['close'] > indicators['open']) &
-                    (indicators['rsi'].shift(1) < indicators['rsi']) &
+                    (indicators.iloc[-1]['volume'] > 0) &
+                    (indicators.iloc[-1]['close'] > indicators.iloc[-1]['open']) &
+                    (indicators['rsi'].shift(1).iloc[-1] < indicators.iloc[-1]['rsi']) &
                     # (indicators['close'] < ((indicators['bb_upperband'] + indicators['bb_middleband']) / 2)) &
                     # (indicators['rsi'].shift(2) < indicators['rsi'].shift(1)) 
                     # ((indicators['low'].shift(2) < indicators['bb_lowerband'].shift(2)) |
                     # ((indicators['close'].shift(1) < indicators['bb_middleband'].shift(1)) |
                     #  (indicators['close'].shift(2) < indicators['bb_middleband'].shift(2)) |
                     #  (indicators['close'] < indicators['bb_middleband'])) &
-                    (((indicators['sma'] - indicators['sma'].shift(1)) / indicators['sma']) * 100 >= 0.15)
+                    (((indicators.iloc[-1]['sma'] - indicators['sma'].shift(1).iloc[-1]) / indicators.iloc[-1]['sma']) * 100 >= 0.15)
 
             ):
             buy = True
@@ -76,11 +77,11 @@ class Strategy(Bot):
 
         if(
                 # (indicators['buy'] >= 1) &
-                (indicators['resample_240_rsi'] > 110)
+                (indicators.iloc[-1]['resample_240_rsi'] > 110)
                 # (indicators['low'] < indicators['bb_lowerband'])
             ):
 
-            buy:False
+            buy = False
         
         return buy
 
@@ -89,66 +90,66 @@ class Strategy(Bot):
         sell = False
         # UP TREND
         if (
-                    (((indicators['sma'] - indicators['sma'].shift(1)) / indicators['sma']) * 100 >= 0.15) &
+                    (((indicators.iloc[-1]['sma'] - indicators['sma'].shift(1).iloc[-1]) / indicators.iloc[-1]['sma']) * 100 >= 0.15) &
                     # ((indicators['close'].shift(1) > indicators['bb_upperband'].shift(1)) |
                     #  (indicators['close'].shift(2) > indicators['bb_upperband'].shift(2)) |
                     #  (indicators['close'] > indicators['bb_upperband'])) &
                     # (indicators['rsi'] > 70) &
-                    (indicators['volume'] > 0) &
-                    (indicators['rsi'].shift(2) > indicators['rsi'].shift(1)) &
-                    (indicators['rsi'].shift(1) > indicators['rsi'])
+                    (indicators.iloc[-1]['volume'] > 0) &
+                    (indicators['rsi'].shift(2).iloc[-1] > indicators['rsi'].shift(1).iloc[-1]) &
+                    (indicators['rsi'].shift(1).iloc[-1] > indicators.iloc[-1]['rsi'])
 
             ):
             sell = True
 
         if (
-                    (indicators['ema'].shift(1) < indicators['ema']) &
+                    (indicators['ema'].shift(1).iloc[-1] < indicators.iloc[-1]['ema']) &
                     # (indicators['close'] > indicators['bb_middleband']) &
                     # (indicators['rsi'].shift(2) > indicators['rsi'].shift(1)) &
-                    (indicators['rsi'].shift(1) > indicators['rsi']) &
+                    (indicators['rsi'].shift(1).iloc[-1] > indicators.iloc[-1]['rsi']) &
                     # (indicators['sma3'].shift(3) < indicators['sma3'].shft(2)) &
-                    (indicators['sma3'].shift(2) < indicators['sma3'].shift(1)) &
-                    (indicators['sma3'].shift(1) < indicators['sma3']) &
-                    ((indicators['rsi'] > 65) |
+                    (indicators['sma3'].shift(2).iloc[-1] < indicators['sma3'].shift(1).iloc[-1]) &
+                    (indicators['sma3'].shift(1).iloc[-1] < indicators.iloc[-1]['sma3']) &
+                    ((indicators.iloc[-1]['rsi'] > 65) |
                      # (indicators['rsi'].shift(4) > 65) |
-                     (indicators['rsi'].shift(3) > 65) |
-                     (indicators['rsi'].shift(2) > 65) |
-                     (indicators['rsi'].shift(1) > 65))
+                     (indicators['rsi'].shift(3).iloc[-1] > 65) |
+                     (indicators['rsi'].shift(2).iloc[-1] > 65) |
+                     (indicators['rsi'].shift(1).iloc[-1] > 65))
             ):
             dell = True
 
         # DOWN TREND
         if (
-                    (((indicators['sma'] - indicators['sma'].shift(1)) / indicators['sma']) * 100 > -0.3) &
-                    (((indicators['sma'] - indicators['sma'].shift(1)) / indicators['sma']) * 100 < 0.15) &
-                    (indicators['close'] < indicators['open']) &
-                    (indicators['close'].shift(1) < indicators['open'].shift(1)) &
+                    (((indicators.iloc[-1]['sma'] - indicators['sma'].shift(1).iloc[-1]) / indicators.iloc[-1]['sma']) * 100 > -0.3) &
+                    (((indicators.iloc[-1]['sma'] - indicators['sma'].shift(1).iloc[-1]) / indicators.iloc[-1]['sma']) * 100 < 0.15) &
+                    (indicators.iloc[-1]['close'] < indicators.iloc[-1]['open']) &
+                    (indicators['close'].shift(1).iloc[-1] < indicators['open'].shift(1).iloc[-1]) &
                     # (indicators['rsi'].shift(1) > 70) &
                     # (indicators['rsi'] < 70) &
                     # (indicators['rsi'] > 60) &
-                    (indicators['volume'] > 0) &
+                    (indicators.iloc[-1]['volume'] > 0) &
                     # (indicators['high'] > indicators['bb_middleband']) &
-                    (indicators['rsi'].shift(1) > indicators['rsi'])
+                    (indicators['rsi'].shift(1).iloc[-1] > indicators.iloc[-1]['rsi'])
                 # (indicators['rsi'].shift(2) > indicators['rsi'].shift(1))
 
             ):
             sell = True
 
         if(
-                    (indicators['open'].shift(1) > indicators['close']) &
-                    (indicators['open'].shift(1) > indicators['close'].shift(1)) &
-                    (indicators['open'].shift(2) > indicators['close'].shift(2)) &
-                    (indicators['open'].shift(3) > indicators['close'].shift(3)) &
-                    (indicators['open'].shift(4) > indicators['close'].shift(4)) &
-                    (indicators['low'] < indicators['bb_lowerband'])
+                    (indicators['open'].shift(1).iloc[-1] > indicators.iloc[-1]['close']) &
+                    (indicators['open'].shift(1).iloc[-1] > indicators['close'].shift(1).iloc[-1]) &
+                    (indicators['open'].shift(2).iloc[-1] > indicators['close'].shift(2).iloc[-1]) &
+                    (indicators['open'].shift(3).iloc[-1] > indicators['close'].shift(3).iloc[-1]) &
+                    (indicators['open'].shift(4).iloc[-1] > indicators['close'].shift(4).iloc[-1]) 
+                    # (indicators.iloc[-1]['low'] < indicators.iloc[-1]['bb_lowerband'])
                 # (indicators['stc'] > 30) &
                 # (indicators['stc'] <= indicators['stc'].shift(1))
                 # (indicators['stc'] < indicators['stc'].shift(1))
             ):
             sell = True
 
-        if indicators.loc[(indicators['volume'] > 0)]:
-            sell = False
+        # if indicators.loc[(indicators['volume'] > 0)]:
+        #     sell = False
             
         return sell
 

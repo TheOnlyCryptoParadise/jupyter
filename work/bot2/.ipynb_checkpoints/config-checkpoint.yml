@@ -2,18 +2,17 @@
 
 # start_balance: 10000
 # min_balance: 100
-transaction_amount: 50
+transaction_amount: 20
 stop_loss: 10
 
 exchange: binance
 currency_pairs:
-  - BTC/USDT
   - ETH/EUR
   - DOT/USDT
 ticker: 1m
-last_n_candles: 200
+last_n_candles: 100
 # roi_stop: 10
-sell_all: True
+sell_all: False
 timeout: 30
 max_open_trades: 5
 #start_time: '2019-06-01 12:22:00'
