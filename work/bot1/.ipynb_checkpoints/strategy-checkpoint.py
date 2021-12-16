@@ -15,6 +15,8 @@ class Strategy(Bot):
         # bollinger = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=10, stds=2)
 
         # print(trend.STCIndicator(dataframe['close']).stc())
+        candles[pair] = self.candles[pair].rename(columns={"time": "date"})
+        candles[pair]["date"] = to_datetime(self.candles[pair]["date"], unit='s')
 
         dataframe_long = resample_to_interval(candles, 240)
         dataframe_long['rsi'] = ta.RSI(dataframe_long, timeperiod=9)
