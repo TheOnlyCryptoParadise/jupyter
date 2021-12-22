@@ -13,8 +13,8 @@ class Strategy(Bot):
 
     def calc_indicators(self, candles:DataFrame):
 
-        candles[pair] = self.candles[pair].rename(columns={"time": "date"})
-        candles[pair]["date"] = to_datetime(self.candles[pair]["date"], unit='s')
+        candles = candles.rename(columns={"time": "date"})
+        candles["date"] = to_datetime(candles["date"], unit='s')
 
         dataframe_long = resample_to_interval(candles, 240)
         dataframe_long['rsi'] = ta.RSI(dataframe_long, timeperiod=9)

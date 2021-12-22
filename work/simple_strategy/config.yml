@@ -7,8 +7,10 @@ stop_loss: 10
 exchange: binance
 currency_pairs:
   - ETH/USDT
+  - DOT/USDT
 ticker: 1h
-last_n_candles: 200
+# start_time: 2021-11-11
+last_n_candles: 400
 sell_all: False
 timeout: 30
 max_open_trades: 5

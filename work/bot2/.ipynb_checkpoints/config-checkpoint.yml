@@ -9,7 +9,7 @@ exchange: binance
 currency_pairs:
   - ETH/EUR
   - DOT/USDT
-ticker: 4h
+ticker: 1m
 last_n_candles: 100
 # roi_stop: 10
 sell_all: False
