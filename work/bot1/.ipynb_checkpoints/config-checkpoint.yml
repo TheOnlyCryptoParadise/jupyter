@@ -10,7 +10,7 @@ currency_pairs:
   - BTC/USDT
   - ETH/EUR
   - DOT/USDT
-ticker: 1h
+candle_size: 1m
 last_n_candles: 200
 # roi_stop: 10
 sell_all: True

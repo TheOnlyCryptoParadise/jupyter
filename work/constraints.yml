@@ -2,7 +2,7 @@
 exchange:
   - binance
 
-tickers:
+candle_sizes:
   - 1m
   - 3m
   - 5m

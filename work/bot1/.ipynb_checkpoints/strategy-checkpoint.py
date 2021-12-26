@@ -1,10 +1,9 @@
 #------Do not change those imports------
-from pandas import DataFrame
+from pandas import DataFrame, to_datetime
 from bot_entity.bot import Bot
 import talib.abstract as ta
 from technical.util import resample_to_interval, resampled_merge
 #---------------------------------------
-
 
 
 # Do not change class and methods names

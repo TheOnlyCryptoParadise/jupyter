@@ -10,7 +10,7 @@ currency_pairs:
   - DOT/USDT
 ticker: 1h
 # start_time: 2021-11-11
-last_n_candles: 400
+last_n_candles: 100
 sell_all: False
 timeout: 30
 max_open_trades: 5

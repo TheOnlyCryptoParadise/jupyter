@@ -16,15 +16,16 @@ class Strategy(Bot):
         return candles
 
     def check_buy_signals(self, indicators):
-        if indicators.iloc[-1]['rsi'] < 65:
-            return True
-        else:
-            return False
+        # if indicators.iloc[-1]['rsi'] < 30:
+        #     return True
+        # else:
+        #     return False
+        return True
         
 
     def check_sell_signals(self, indicators):
-        if indicators.iloc[-1]['rsi'] > 32:
-            return True
-        else:
-            return False
+        # if indicators.iloc[-1]['rsi'] > 70:
+        #     return True
+        # else:
+        return False
 

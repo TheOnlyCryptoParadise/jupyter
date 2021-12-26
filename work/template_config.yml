@@ -16,7 +16,7 @@ currency_pairs:
   - DOT/USDT
   
 # candle interval. See constraints.yml for available candles
-ticker: 1m 
+candle_size: 1m 
 
 # from which time do you want to start calculating indicators (select this or last_n_candles): datetime - yyy-mm-dd hh:mm:ss eg. 
 #start_time: '2019-06-01 12:22:00'
