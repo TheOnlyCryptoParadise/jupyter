@@ -8,7 +8,7 @@ exchange: binance
 currency_pairs:
   - ETH/USDT
   - DOT/USDT
-ticker: 1h
+timeframe: 1h
 # start_time: 2021-11-11
 last_n_candles: 100
 sell_all: False

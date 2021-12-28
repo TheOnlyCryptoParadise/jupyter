@@ -14,7 +14,7 @@ currency_pairs:
   - BTC/USDT
   
 # candle interval. See constraints.yml for available candles
-candle_size: 5m 
+timeframe: 5m 
 
 # from which time do you want to start calculating indicators (select this or last_n_candles): datetime - yyy-mm-dd hh:mm:ss eg. 
 #start_time: '2019-06-01 12:22:00'

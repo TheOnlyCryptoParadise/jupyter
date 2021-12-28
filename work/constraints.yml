@@ -2,7 +2,7 @@
 exchange:
   - binance
 
-candle_sizes:
+timeframes:
   - 1m
   - 3m
   - 5m
