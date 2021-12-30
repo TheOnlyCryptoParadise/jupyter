@@ -14,7 +14,7 @@ currency_pairs:
   - BTC/USDT
   
 # candle interval. See constraints.yml for available candles
-timeframe: 4h 
+timeframe: 15m 
 
 # from which time do you want to start calculating indicators (select this or last_n_candles): datetime - yyy-mm-dd hh:mm:ss eg. 
 #start_time: '2019-06-01 12:22:00'
@@ -23,7 +23,7 @@ timeframe: 4h
 #end_time: '2019-06-10 12:22:00'
 
 # based on how many candles do you want to calculate indicators (select this or start_time)
-last_n_candles: 10 
+last_n_candles: 200 
 
 # if True when sell signal occurs sell all owned amount of cryptocurrency; if False sell amount on sungle buy transaction
 sell_all: True
