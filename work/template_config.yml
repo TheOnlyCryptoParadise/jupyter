@@ -19,10 +19,7 @@ currency_pairs:
 timeframe: 1m 
 
 # from which time do you want to start calculating indicators (select this or last_n_candles): datetime - yyy-mm-dd hh:mm:ss eg. 
-#start_time: '2019-06-01 12:22:00'
-
-# to which time download candles to calculate indicators: datetime - yyy-mm-dd hh:mm:ss
-#end_time: '2019-06-10 12:22:00'
+#time_start: '2019-06-01 12:22:00'
 
 # based on how many candles do you want to calculate indicators (select this or start_time)
 last_n_candles: 200 

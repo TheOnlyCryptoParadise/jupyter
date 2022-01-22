@@ -1,9 +1,10 @@
 # example of bot_entity configuration
 
  # units of cryptocurrency used by bot_entity to make one buy trade
-transaction_amount: 20
+transaction_amount: 100
 
-# if transaction value will fall by the stop_loss value (percentages), relative to its purchase price, bot_entity will sell it
+# if transaction value will fall by the stop_loss value (percentages), relative to its 
+#purchase price, bot_entity will sell it
 stop_loss: 20 
 
 # exchange on which bot_entity trades: binance
@@ -16,20 +17,19 @@ currency_pairs:
 # candle interval. See constraints.yml for available candles
 timeframe: 1h 
 
-# from which time do you want to start calculating indicators (select this or last_n_candles): datetime - yyy-mm-dd hh:mm:ss eg. 
-#start_time: '2019-06-01 12:22:00'
-
-# to which time download candles to calculate indicators: datetime - yyy-mm-dd hh:mm:ss
-#end_time: '2019-06-10 12:22:00'
+# from which time do you want to start calculating indicators (select this or last_n_candles):
+#datetime - yyy-mm-dd hh:mm:ss eg. 
+#time_start: '2019-06-01 12:22:00'
 
 # based on how many candles do you want to calculate indicators (select this or start_time)
 last_n_candles: 200 
 
-# if True when sell signal occurs sell all owned amount of cryptocurrency; if False sell amount on sungle buy transaction
+# if True when sell signal occurs sell all owned amount of cryptocurrency; if False sell amount
+#on sungle buy transaction
 sell_all: False
 
 # in minutes - how long to wait before transaction cancellation (needs to be bigger than zero)
 timeout: 30
 
 # maximum number of open trades for bot (for trades of all pairs)
-max_open_trades: 5
+max_open_trades: 10

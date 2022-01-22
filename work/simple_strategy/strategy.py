@@ -5,8 +5,6 @@ import talib.abstract as ta
 from technical.util import resample_to_interval, resampled_merge
 #---------------------------------------
 
-
-
 # Do not change class and methods names
 
 class Strategy(Bot):
